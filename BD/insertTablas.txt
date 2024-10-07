@@ -1,0 +1,104 @@
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------ TABLE Product ------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------
+
+-- --------------------------------------URBAN---------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Hoodie de Nicki Nicole', 'Añade frescura a tu guardarropa con esta hoodie rosa de Niki Nicole. Hecha de algodón y poliéster, es cómoda y perfecta para un look casual y moderno.', 800, 'urban', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065390/karolgT-shirt_wjd524.jpg', FLOOR(1 + RAND() * 100)),
+('Hoodie Latin Mafia', 'Nuestra Impresión se caracterizan por su alta calidad, colores, elasticidad y resistencia al lavado.', 800, 'urban', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065387/latin_kloozy.webp', FLOOR(1 + RAND() * 100)),
+('Playera "El Malilla"', 'Confeccionada con una composición de 50/50 de algodón y poliéster, esta playera ofrece una sensación suave y fresca al tacto. Su diseño liso y corte recto la convierten en una prenda versátil para diversas ocasiones.', 350, 'urban', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065391/malilla_ngyqqs.webp', FLOOR(1 + RAND() * 100)),
+('Playera gris Alvaro Diaz West Side', 'Textura tacto algodón suavizado, estampado con alta calidad gráfica digital y muy durable.No se encoge y no se deforma.', 350, 'urban', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065386/diaz_qlc8pu.webp', FLOOR(1 + RAND() * 100)),
+('Playera "Ojalá Estuvieras Aquí"', 'DETALLES: Impresión frente y vuelta en serigrafía MATERIALES Y CONSTRUCCIÓN: Elaborada en playera tubular 100% algodón TIPO DE FITTING:   El modelo mide 175 cm y utiliza una playera talla 3', 350, 'urban', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065382/aquihay_quewz0.webp', FLOOR(1 + RAND() * 100));
+
+-- --------------------------------------ROCK---------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, "ROCK", product_image, product_stock) VALUES
+("Termo inoxidable de Pink Floyd + Llavero de regalo", "Termo lata con popote de 500 ml. Soporta más de 8 horas la temperatura de las bebidas", 300, "ROCK","https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065052/termo-rock_pzvfor.jpg", FLOOR(1 + RAND() * 100)),
+("50 parches de bandas de rock y metal", "Parches termoadherentes de máxima calidad, material algodón, tienen un tamaño de 11 cm x 6.5 cm y 1.1 mm de grosor ", 300, "ROCK", "https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065052/parches-rock_ktcpxa.jpg", FLOOR(1 + RAND() * 100)),
+("3 pares de calcetines de rock","Calcetines largos, deportivos, composición 100 % de algodón", 300, "ROCK", "https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065048/calcetines-rock_cexyfp.jpg", FLOOR(1 + RAND() * 100)),
+("Correa para guitarra - Perris Leathers Guns N Roses", "Práctica correa de guitarra que se puede fijar rápida y fácilmente a todo tipo de guitarra. Todos los tamaños, 2 pulgadas de ancho, longitud ajustable de 39 a 58 pulgadas para un ajuste óptimo; antideslizante, duradero, cómodo, fácil de fijar ", 400, "ROCK", "https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065054/correa-rock_kgzpne.jpg", FLOOR(1 + RAND() * 100)),
+("KESYOO Muñequeras", "Pulsera con forma de calavera, con patrón de calavera y el exterior decorado con cadenas de plata, hecho de cuero, para un uso prolongado y cómodo ", 400, "ROCK", "https://res.cloudinary.com/dmyrbljhd/image/upload/v1728065049/mu%C3%B1equera-rock_hfqtby.jpg", FLOOR(1 + RAND() * 100));
+
+-- --------------------------------------EDM---------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, "ROCK", product_image, product_stock) VALUES
+('Bandera Oficial Tomorrowland', 'Abraza el cálido sentimiento de amor, paz y unidad con la bandera oficial de Tomorrowland.',200,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto1edm_apmppp.webp',FLOOR(1+RAND() * 100)),
+('Sudadera Fusion Shadow','La sudadera Fusion Shadow cuenta con un  bordado de icono de Tomorrowland en colores de sombra para que destaque.',1100,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064051/producto2edm_hjluox.webp',FLOOR(1 + RAND() * 100)),
+('Sudadera UNITE VARSITY','La sudadera Unite es una adición imprescindible a tu guardarropa. Abraza el poder de los materiales de alta calidad en combinación con la belleza de la unidad',1100,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto3edm_ngkqx0.jpg',FLOOR(1+RAND() * 100)),
+('Sudadera STAIRWAY TO UNITY','Stairway To Unity es un homenaje a la escalera de mosaico hecha a mano, simbolizando el valor más importante de Tomorrowland: unir a la gente del mañana de todo el mundo',1100,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto4edm_n4l9ld.webp',FLOOR(1+RAND() * 100)),
+('Sudadera HAPPICON','Celebre 20 años de unificación del mundo. La Colección Happicon representa la conexión entre la Gente del Mañana de cada rincón del mundo',1100,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto5edm_lsspoa.jpg',FLOOR(1+RAND() * 100)),
+('Eau de Parfum Elixir de la Vida','Inspirado en un paisaje natural único, hermosos céspedes verdes y las flores más poderosas, es una fragancia natural cautivadora que te transporta a un mundo sereno y mágico.',1500,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto6edm_eewcdr.png',FLOOR(1+RAND() * 100)),
+('EDC Las Vegas 2024 Vinyl Set','Este es un PEDIDO ANTICIPADO para un juego de vinilo personalizado de 3 piezas en forma de margarita. Este es un artículo de edición limitada con solo 500 hechos.',1700,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/producto7edm.jpg_rgrrae.webP',FLOOR(1+RAND() * 100)),
+('Gorra de béisbol Tomorrowland','Tomorrowland-gorra de béisbol personalizada para hombre y mujer, gorro de béisbol con Snapback plano, estilo Hip Hop, para Festival de música de baile electrónico.',300,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064051/gorraedm_s6udve.jpg',FLOOR(1+RAND() * 100)),
+('EDM termo D1 8oz eléctrica','Termo D1 8oz eléctrica de acero inoxidable música Dance Rave luces de fiesta Marca Perfection In Style.',250,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/termoedm_xucov3.jpg',FLOOR(1+RAND() * 100)),
+('T-Shirt by "TecHno"','T-Shirt oficial by TecHno, 100% algodón Camiseta cómoda y suave, un básico en tu armario Tipo de impresión Transfer.',350,'EDM','https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064052/techNo_scqra0.jpg',FLOOR(1+RAND() * 100));
+
+-------------------------------------------------INDIE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO mydb.Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Zoe Gold', 'Descripción del producto Zoe Gold', 29.99, 'URBAN', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064392/ZoeGold_o6dbvc.jpg', 50);
+INSERT INTO mydb.Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('TTO2', 'Descripción del producto TTO2', 19.99, 'URBAN', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064392/TTO2_fizqn6.jpg', 30);
+INSERT INTO mydb.Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Totebag 1', 'Descripción del producto Totebag 1', 15.99, 'URBAN', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064391/Totebag1_i4unzi.jpg', 100);
+INSERT INTO mydb.Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Taza Beck', 'Descripción del producto Taza Beck', 9.99, 'URBAN', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064391/TazaBeck_giggvl.webp', 200);
+INSERT INTO mydb.Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Sudadera 1 Zoe', 'Descripción del producto Sudadera 1 Zoe', 39.99, 'URBAN', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064391/Susadera1Zoe_jqipny.jpg', 75);
+-------------------------------------------------POP------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('Cardigan de Harry Styles', 'Celebra la moda con el cardigan que Harry Styles usó en el Today Show. Con colores vibrantes y patrones únicos, este cardigan de lana es cómodo y una verdadera declaración de estilo', 1100, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064565/harryCardigan_mscewa.jpg
+', FLOOR(1 + RAND() * 100)),
+('Cardigan de Taylor Swift', 'El cardigan de Taylor Swift en su video "Cardigan" es de suave lana gris, cómodo y con un estilo vintage ideal para los fans de la era Folklore.', 1100, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064559/taylorCardigan_hukedr.webp
+', FLOOR(1 + RAND() * 100)),
+('Mítica Versace de Luis Miguel', 'Rinde homenaje al estilo de Luis Miguel con esta prenda de seda y poliéster de alta calidad. Con detalles distintivos y un acabado lujoso, añade elegancia a cualquier atuendo.', 800, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064560/luismiguelMiticaVersace_ovejzx.jpg', FLOOR(1 + RAND() * 100)),
+('Sweater de Lana del Rey', 'Conquista el estilo retro de Lana Del Rey con este suéter inspirado en Born to Die. Hecho de suave lana, combina calidez y elegancia, perfecto para añadir glamour a tu guardarropa.', 500, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064562/lanaSueter_n6cuns.jpg', FLOOR(1 + RAND() * 100)),
+('Sweater de One Direction', 'Lleva el estilo de One Direction con este suéter exclusivo que muestra sus caras icónicas. Hecho de algodón y poliéster, es cómodo y perfecto para cualquier fan.', 500, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064564/onediSueter_oequkw.jpg', FLOOR(1 + RAND() * 100));
+('T-shirt de los Jonas Brothers', 'Demuestra tu amor por los Jonas Brothers con esta t-shirt exclusiva. Hecha de algodón suave y duradero, es perfecta para cualquier fan.', 600, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064565/Jona_Brothers_jv8m6n.jpg', FLOOR(1 + RAND() * 100)),
+('T-shirt de Justin Bieber', 'La t-shirt oficial de Justin Bieber combina estilo y comodidad. Ideal para llevar en cualquier ocasión, muestra tu pasión por el cantante canadiense.', 450, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064562/JustinTshirt_art77i.webp', FLOOR(1 + RAND() * 100)),
+('Sudadera de Justin Bieber', 'Sudadera cómoda y moderna de Justin Bieber. Con un diseño minimalista y hecha de algodón, es perfecta para cualquier clima.', 900, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064561/SudaderaJustin1_lenzpv.webp', FLOOR(1 + RAND() * 100)),
+('Sudadera de los Jonas Brothers', 'Mantente cálido y a la moda con esta sudadera de los Jonas Brothers. Fabricada con materiales de alta calidad para garantizar confort y estilo.', 800, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064561/SudaderaJonas1_eb0jln.webp', FLOOR(1 + RAND() * 100));
+('Tote Bag de los Jonas Brothers', 'Tote bag exclusivo de los Jonas Brothers, ideal para llevar tus cosas con estilo. Hecho de materiales reciclados, es perfecto para un uso diario.', 700, 'pop', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064564/ToteBagJonas_aed1lr.webp', FLOOR(1 + RAND() * 100));
+
+-----------------------------------------------------------REGIONAL-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('T-Shirt "Invasores de Nuevo León', 'Elaborada en tela 100% algodón, con estampado de alta calidad', 350, 'regional', '
+https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064894/tshirtINVASORES_uq6cue.jpg', FLOOR(1 + RAND() * 100)), 
+('Hat cap "TQM" by Fuerza Régida', 'Elaborada en lona, bordado premium, con rejillas que ayudan a la transpiración.', 300, 'regional', '
+https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064886/hatcap_lqaje3.jpg', FLOOR(1 + RAND() * 100)), 
+('Vaso con popote "Gerardo Ortíz', '35 cm de alto, capacidad de 750 ml, elaborado en polímero resistente a golpes', 200, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064898/vaso_vasgqb.jpg', FLOOR(1 + RAND() * 100)), 
+('Jacket "Grupo Frontera"', 'Elaborada en algodón con aplicaciones de vinipiel y bordado de alta calidad', 1100, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064889/jacket_e6q4rs.jpg', FLOOR(1 + RAND() * 100)), 
+('Taza "Vicente Fernández"', 'Taza cerámica con serigrafía. Ideal para microondas', 300, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064892/taza_rxtrwj.jpg', FLOOR(1 + RAND() * 100));  
+('T-Shirt "EL REY" by Vicente Fernández', 'Elaborada en algodón con estampado de alta calidad', 350, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064884/elrey_d6pyap.jpg', FLOOR(1 + RAND() * 100)),  
+('Perezoso de "Natanael Cano"', 'Perezoso oficial de Natanael Cano, 25 cm de alto', 400, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064890/peluche_xrrefk.webp', FLOOR(1 + RAND() * 100)), 
+('Gorra de "Peso Pluma"', 'Gorra oficial de Peso Pluma, clásica ajustable con visera plana bordada de 5 paneles', 250, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064884/gorra_tbx2d3.webp', FLOOR(1 + RAND() * 100));  
+('T-Shirt by "Tigres del Norte"', 'T-Shirt oficial de Tigres del norte, 100% algodón Camiseta cómoda y suave, un básico en tu armario', 350, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064894/tigres_wlt347.jpg', FLOOR(1 + RAND() * 100)), 
+('T-Shirt by "Grupo Firme"', 'T-Shirt by Grupo Firme, Playera con estampado de Impresión digital con mangas', 350, 'regional', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064896/tshirtJA_rgn6gh.jpg', FLOOR(1 + RAND() * 100));
+
+
+-- --------------------------------------RAP---------------------------------------------
+INSERT INTO Product (product_name, product_description, product_price, product_genre, product_image, product_stock) VALUES
+('T-Shirt "Camisa Tupac Shakur"', 'Camisa con Tupac Shakur, color Azul Claro, unisex 100% algodon',384 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064778/camisa_tupac_lvurft.png', FLOOR(1 + RAND() * 100));
+('T-Shirt "Camisa Mad Villiany" MF DOOM', 'Camisa con portada de MadVilliany by MF DOOM, texto "ALL CAPS", color crema unisex 100% algodon',384 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064777/camisa_madVilliany_mfDoom_z9gxba.png', FLOOR(1 + RAND() * 100));
+('T-Shirt "Camisa Graduation" Kanye West', 'Camisa con portada de álbumn Graduation de Kanye West, color blanco, texto "good life" unisex 100% algodon',384 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064776/camisa_graduation_ye_yu7ixk.png', FLOOR(1 + RAND() * 100));
+('T-Shirt "Camisa Good Kid m.a.a.d city" Kendrick Lamar', 'Camisa con portada de Good Kiid <.A.A.D City, color blanco unisex 100% algodon',384 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064775/camisa_goodKiidMaadCity_kendrick_qlhpcc.png', FLOOR(1 + RAND() * 100));
+('Vinyl "To Pimp a Butterfly" de Kendrick Lamar', 'Vinilo album "To Pimp A Butterfly" by Kendrick Lamar',1015 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064774/vinyl_TPAB_kendrickLamar_jctghk.jpg', FLOOR(1 + RAND() * 100));
+('Vinyl "Marshal Mathers LP" de eminem', 'Vinilo album "Marshall Mathers LP" by EMINEM',1015 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064774/vinyl_marshallMathersLp_eminem_s24brf.webp', FLOOR(1 + RAND() * 100));
+('Vinyl "illmatic" de nas', 'Vinilo album "illmatic" by nas',1015 , 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064772/vinyl_illmatic_nas_njj37x.jpg', FLOOR(1 + RAND() * 100));
+('T-Shirt "Camisa DAMN" Kendrick Lamar', 'Camisa con portada de álbum DAMN, color blanco unisex 100% algodon', 384, 'RAP', 'https://res.cloudinary.com/dmyrbljhd/image/upload/v1728064772/camisa_damn_kendrick_iwhodb.png', FLOOR(1 + RAND() * 100));
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------ TABLE order ------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO order (order_date, order_status, order_item_list, User_user_id, User_user_password) VALUES
+('2024-10-10', 'Pending','Hoodie de Nicki Nicole', FLOOR(1 + RAND() * 100)),
+('2024-11-15', 'Pending','Termo inoxidable de Pink Floyd + Llavero de regalo', FLOOR(1 + RAND() * 100)),
+('2024-12-06', 'Pending','Bandera Oficial Tomorrowland', FLOOR(1 + RAND() * 100)),
+('2024-11-08', 'Pending','Zoe Gold', FLOOR(1 + RAND() * 100)),
+('2024-10-12', 'Pending','Totebag 1', FLOOR(1 + RAND() * 100));
+
+
+
+
+
+
+
