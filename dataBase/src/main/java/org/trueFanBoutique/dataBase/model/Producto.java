@@ -1,4 +1,4 @@
-package org.trueFanBoutique.model;
+package org.trueFanBoutique.dataBase.model;
 
 public class Producto {
     private Long id;
