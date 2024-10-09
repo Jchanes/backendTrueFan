@@ -1,0 +1,267 @@
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-10-09 11:58:32.935
+!MESSAGE Can't write workspace state
+!STACK 0
+java.io.FileNotFoundException: D:\ch45\proyectoIntegradorBackend\.metadata\.plugins\org.eclipse.m2e.core\workspaceState.ser (El sistema no puede encontrar la ruta especificada)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryReader.createObjectOutputStream(ProjectRegistryReader.java:127)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryReader.writeWorkspaceState(ProjectRegistryReader.java:116)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.writeWorkspaceState(ProjectRegistryManager.java:1043)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.saving(ProjectRegistryManager.java:1194)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:452)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:268)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:271)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1225)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2489)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:553)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-10-09 11:58:34.793
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2024-10-09 11:58:34.793
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2024-10-09 11:58:34.793
+!MESSAGE Could not write workspace metadata 'D:/ch45/proyectoIntegradorBackend/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree'.
+!STACK 0
+java.io.FileNotFoundException: D:\ch45\proyectoIntegradorBackend\.metadata\.plugins\org.eclipse.core.resources\.root\1.tree (El sistema no puede encontrar la ruta especificada)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:55)
+	at org.eclipse.core.internal.resources.SaveManager.saveTree(SaveManager.java:1423)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1229)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2489)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:553)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-10-09 11:58:36.302
+!MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2024-10-09 11:59:15.160 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-10-09 11:59:16.870
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-09 11:59:17.066
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-10-09 11:59:19.541
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-09 11:59:19.866
+!MESSAGE Logback config file: D:\ch45\proyectoIntegradorBackend\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-09 11:59:23.832
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Chanesito'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-10-09 11:59:49.057
+!MESSAGE An internal error occurred during: "Updating workspace".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2462)
+	at org.eclipse.core.internal.events.NotificationManager$NotifyJob.run(NotificationManager.java:60)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-10-09 11:59:59.922
+!MESSAGE An internal error occurred during: "Checking project encoding".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-10-09 11:59:59.924
+!MESSAGE An internal error occurred during: "Flushing content description cache.".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-10-09 11:59:59.925
+!MESSAGE An internal error occurred during: "Processing JavaScript changes since last activation".
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2462)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2468)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$13.run(JavaModelManager.java:4194)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.buildship.core 4 7 2024-10-09 11:59:59.980
+!MESSAGE Project import failed due to an unexpected error.
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2462)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2473)
+	at org.eclipse.buildship.core.internal.operation.DefaultToolingApiOperationManager.run(DefaultToolingApiOperationManager.java:39)
+	at org.eclipse.buildship.core.internal.DefaultGradleBuild$SynchronizeOperation.run(DefaultGradleBuild.java:197)
+	at org.eclipse.buildship.core.internal.DefaultGradleBuild.synchronize(DefaultGradleBuild.java:105)
+	at org.eclipse.buildship.ui.internal.wizard.project.ProjectImportWizardController$5.run(ProjectImportWizardController.java:213)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-10-09 12:00:05.241
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2024-10-09 12:00:05.242
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.ui.ide 4 1 2024-10-09 12:00:05.242
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.core.internal.dtree.ObjectNotFoundException: Tree element '/dataBase/src/test' not found.
+	at org.eclipse.core.internal.dtree.AbstractDataTree.handleNotFound(AbstractDataTree.java:183)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:317)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.naiveCopyCompleteSubtree(DeltaDataTree.java:754)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.copyCompleteSubtree(DeltaDataTree.java:321)
+	at org.eclipse.core.internal.dtree.DataTreeNode.asBackwardDelta(DataTreeNode.java:59)
+	at org.eclipse.core.internal.dtree.DataDeltaNode.asBackwardDelta(DataDeltaNode.java:51)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.asBackwardDelta(DeltaDataTree.java:96)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:809)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:808)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.reroot(DeltaDataTree.java:785)
+	at org.eclipse.core.internal.watson.ElementTree.immutable(ElementTree.java:540)
+	at org.eclipse.core.internal.events.ResourceDeltaFactory.computeDelta(ResourceDeltaFactory.java:49)
+	at org.eclipse.core.internal.events.NotificationManager.getDelta(NotificationManager.java:256)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:165)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1307)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2489)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:553)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+!SESSION 2024-10-09 12:01:20.989 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-10-09 12:01:23.212
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-09 12:01:23.406
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-10-09 12:01:26.238
+!MESSAGE Logback config file: D:\ch45\proyectoIntegradorBackend\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-10-09 12:01:30.314
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Chanesito'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
