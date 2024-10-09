@@ -6,15 +6,25 @@ public class Order {
 	private String date;
 	private Boolean orderStatus;
 	private static Long total = Long.valueOf(0);
+	private String direccion;
 	
-	public Order(String date,  Boolean orderStatus, Long userid, Long productid) {
+	public Order(String date, String direccion, Boolean orderStatus, Long userid, Long productid) {
 	
 		this.userid = userid;
 		this.productid = productid;
 		this.date = date;
 		this.orderStatus = orderStatus;
+		this.direccion = direccion;
 		Order.total++;
 		this.id = Order.total;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public Order() {
