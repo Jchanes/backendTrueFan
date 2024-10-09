@@ -10,7 +10,7 @@ public class Producto {
 	
     private static Long total = Long.valueOf(0);
     
-    public Producto(Long id, String nombre, String descripcion, String imagen, double precio, String genero) {
+    public Producto(String nombre, String descripcion, String imagen, double precio, String genero) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.imagen = imagen;
@@ -20,10 +20,25 @@ public class Producto {
 	    id = Producto.total;
     }//Constructor
     
-    public Producto() {
-    	Producto.total++;
+    
+    
+	public Producto() {
+		Producto.total++;
 	    id = Producto.total;
-    }
+	}
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 
 	public String getNombre() {
