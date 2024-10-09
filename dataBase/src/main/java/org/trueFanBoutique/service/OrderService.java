@@ -55,10 +55,11 @@ public class OrderService {
 	    for (Order order : lista) {
 	        if (order.getId()==orderId) { 
 	            order.setOrderStatus(!order.getOrderStatus());;
+	            ord = order;
 	            break;
 	        }
 	    }
-	    return ord; //si no se encuentra la orden
+	    return ord;
 	}
 	
 }//class OrderService 

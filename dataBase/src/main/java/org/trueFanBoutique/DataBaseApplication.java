@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase;
+package org.trueFanBoutique;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
