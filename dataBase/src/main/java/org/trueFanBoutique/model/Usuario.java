@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase.model;
+package org.trueFanBoutique.model;
 
 
 public class Usuario {

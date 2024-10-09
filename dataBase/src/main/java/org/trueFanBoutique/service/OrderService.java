@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase.service;
+package org.trueFanBoutique.service;
 
 public class OrderService {
 

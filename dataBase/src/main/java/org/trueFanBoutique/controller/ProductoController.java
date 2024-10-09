@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase.controller;
+package org.trueFanBoutique.controller;
 
 public class ProductoController {
 

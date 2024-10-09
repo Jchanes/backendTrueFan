@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase.dto;
+package org.trueFanBoutique.dto;
 
 public class ChangeAddress {
 

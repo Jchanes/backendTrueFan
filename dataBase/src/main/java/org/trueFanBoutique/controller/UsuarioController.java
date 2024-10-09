@@ -1,4 +1,4 @@
-package org.trueFanBoutique.dataBase.controller;
+package org.trueFanBoutique.controller;
 
 
 import java.util.List;
@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.trueFanBoutique.dataBase.dto.ChangePassword;
-import org.trueFanBoutique.dataBase.dto.ChangePhone;
-import org.trueFanBoutique.dataBase.model.Usuario;
-import org.trueFanBoutique.dataBase.service.UsuarioService;
+import org.trueFanBoutique.dto.ChangeData;
+import org.trueFanBoutique.model.Usuario;
+import org.trueFanBoutique.service.UsuarioService;
 
 @RestController
 @RequestMapping(path="/truefan/usuarios/")
@@ -50,10 +49,12 @@ public class UsuarioController {
 		return usuarioService.addUsuario(usuario);
 	}//addUsuario
 	
+	
 	@PutMapping(path="{userId}")
-	public Usuario updateUsuario(@PathVariable("userId")Long id, @RequestParam(required=false)@RequestBody ChangePassword changePassword, 
-@RequestParam(required=false)@RequestBody ChangePhone changePhone) {
-		return usuarioService.updateUsuario(id, changePassword, changePhone);
-	}//update
+	public Usuario updateData(@PathVariable("userId") Long id, @RequestBody ChangeData changeData) {
+	    return usuarioService.updateData(id, changeData);
+	}//updateData
+
+
 		
 }//class UsuarioController 
