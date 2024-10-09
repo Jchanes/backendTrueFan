@@ -7,7 +7,7 @@ public class Order {
 	private Boolean orderStatus;
 	private static Long total = Long.valueOf(0);
 	
-	public Order(Long userid, Long productid, String date, Boolean orderStatus) {
+	public Order(String date,  Boolean orderStatus, Long userid, Long productid) {
 	
 		this.userid = userid;
 		this.productid = productid;
