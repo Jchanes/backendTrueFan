@@ -1,4 +1,4 @@
-package org.trueFanBoutique.controller;
+package org.trueFanBoutique.dataBase.controller;
 
 public class OrderController {
 
