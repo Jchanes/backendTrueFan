@@ -4,6 +4,7 @@
 .settings/
 bin/
 .metadata/
+src/main/resources/application.properties
 
 #Compiled class file
 .class
