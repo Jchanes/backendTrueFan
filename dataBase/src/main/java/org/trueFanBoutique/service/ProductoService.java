@@ -1,6 +1,7 @@
 package org.trueFanBoutique.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,37 +29,40 @@ public class ProductoService {
 	}
 
 	public Producto addProducto(Producto producto) {
-		return producto;
-	}
+		Optional<Producto> prod = productoRepository.findByNombre(producto.getNombre());
+		if(prod.isEmpty()) {
+			return productoRepository.save(producto);
+		}else {
+			System.out.println("el producto ["+producto.getNombre()
+					+ "] ya se encuentra registrado");
+			return null;
+		}
+	}//addProducto
 
 	public Producto deleteProducto(Long prodId) {
 		Producto prod = null;
-//		for (Producto producto : lista) {
-//			if (producto.getId() == prodId) {
-//				prod = lista.remove(lista.indexOf(producto));
-//				break;
-//			}
-//		}
+			if (productoRepository.existsById(prodId)) {
+				prod = productoRepository.findById(prodId).get();
+				productoRepository.deleteById(prodId);
+			}
 		return prod;
-	}
+	}//deleteProducto
 
 	public Producto updateProducto(Long prodId, String genero, String nombre, String descripcion, String imagen,
 			Double precio) {
 		Producto prod = null;
-//		for (Producto producto : lista) {
-//			if (producto.getId() == prodId) {
-//				if (nombre != null)
-//					producto.setNombre(nombre);
-//				if (descripcion != null)
-//					producto.setDescripcion(descripcion);
-//				if (imagen != null)
-//					producto.setImagen(imagen);
-//				if (precio != null)
-//					producto.setPrecio(precio);
-//				prod = producto;
-//				break;
-//			} // if
-//		} // foreach
+				if (productoRepository.existsById(prodId)) {
+				Producto producto = productoRepository.findById(prodId).get();
+				if (nombre != null)
+					producto.setNombre(nombre);
+				if (descripcion != null)
+					producto.setDescripcion(descripcion);
+				if (imagen != null)
+					producto.setImagen(imagen);
+				if (precio != null)
+					producto.setPrecio(precio);
+				prod = producto;
+				}
 		return prod;
 	}
 
