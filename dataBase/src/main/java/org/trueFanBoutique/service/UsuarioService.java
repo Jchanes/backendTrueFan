@@ -1,12 +1,11 @@
-package org.trueFanBoutique.dataBase.service;
+package org.trueFanBoutique.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.trueFanBoutique.dataBase.dto.ChangePassword;
-import org.trueFanBoutique.dataBase.dto.ChangePhone;
-import org.trueFanBoutique.dataBase.model.Usuario;
+import org.trueFanBoutique.dto.ChangeData;
+import org.trueFanBoutique.model.Usuario;
 
 @Service
 public class UsuarioService {
@@ -61,25 +60,25 @@ public class UsuarioService {
 		return user;
 	}//deleteUsuario (DEL)
 	
-	public Usuario updateUsuario(Long id, ChangePassword changePassword, ChangePhone changePhone) {
-		Usuario user=null;
-		for (Usuario usuario : lista) {
-			if(usuario.getId()==id) {
-				if(changePassword!=null) {
-					if(usuario.getPassword().equals(changePassword.getPassword())) {
-						usuario.setPassword(changePassword.getNpassword());
-						user=usuario;
-					}//if
-				}//if
-				if(changePhone!=null) {
-					if(usuario.getPhone().equals(changePhone.getPhone())) {
-						usuario.setPhone(changePhone.getNphone());
-						user=usuario;
-					}//if
-				}//if
-				break;
-			}//if
-		}//foreach
-		return user;
-	}//updateUsuario	
+	public Usuario updateData(Long id, ChangeData changeData) {
+	    Usuario user = null;
+	    for (Usuario usuario : lista) {
+	        if (usuario.getId().equals(id)) {
+	            // Actualizar contraseña si es necesario
+	            if (changeData.getNpassword() != null && 
+	                usuario.getPassword().equals(changeData.getPassword())) {
+	                usuario.setPassword(changeData.getNpassword());
+	            }
+	            // Actualizar teléfono si es necesario
+	            if (changeData.getNphone() != null && 
+	                usuario.getPhone().equals(changeData.getPhone())) {
+	                usuario.setPhone(changeData.getNphone());
+	            }//if
+	            user = usuario;
+	            break;
+	        }//if
+	    }//foreach
+	    return user;
+	}//updateData
+
 }//class UsuarioService 
