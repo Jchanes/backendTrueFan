@@ -50,13 +50,13 @@ public class ProductoController {
 	
 	@PutMapping(path="{prodId}")
 	public Producto updateProducto (@PathVariable("prodId") Long prodId,
-									@RequestParam(required=false) String genero,
 									@RequestParam(required=false) String nombre,
 									@RequestParam(required=false) String descripcion,
 									@RequestParam(required=false) String imagen,
-									@RequestParam(required=false) Double precio){
+									@RequestParam(required=false) Double precio,
+									@RequestParam(required=false) String genero){
 		
-		return productoService.updateProducto(prodId, genero, nombre, descripcion, imagen, precio);
+		return productoService.updateProducto(prodId, nombre, descripcion, imagen, precio,genero);
 	}//deleteProducto
 	
 }//productoController

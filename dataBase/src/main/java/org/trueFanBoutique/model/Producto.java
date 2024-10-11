@@ -24,8 +24,6 @@ public class Producto {
     private double precio;
 	@Column(nullable = false)
     private String genero;
-	
-    private static Long total = Long.valueOf(0);
     
     public Producto(String nombre, String descripcion, String imagen, double precio, String genero) {
 		this.nombre = nombre;
@@ -33,15 +31,11 @@ public class Producto {
 		this.imagen = imagen;
 		this.precio = precio;
 		this.genero = genero;
-	    Producto.total++;
-	    id = Producto.total;
     }//Constructor
     
     
     
 	public Producto() {
-		Producto.total++;
-	    id = Producto.total;
 	}
 	
 	

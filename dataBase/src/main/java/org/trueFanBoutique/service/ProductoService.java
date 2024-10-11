@@ -48,8 +48,8 @@ public class ProductoService {
 		return prod;
 	}//deleteProducto
 
-	public Producto updateProducto(Long prodId, String genero, String nombre, String descripcion, String imagen,
-			Double precio) {
+	public Producto updateProducto(Long prodId, String nombre, String descripcion, String imagen,
+			Double precio,String genero) {
 		Producto prod = null;
 				if (productoRepository.existsById(prodId)) {
 				Producto producto = productoRepository.findById(prodId).get();
@@ -61,7 +61,10 @@ public class ProductoService {
 					producto.setImagen(imagen);
 				if (precio != null)
 					producto.setPrecio(precio);
+				if (genero != null)
+					producto.setGenero(genero);
 				prod = producto;
+				productoRepository.save(producto);
 				}
 		return prod;
 	}
