@@ -1,83 +1,83 @@
 package org.trueFanBoutique.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.trueFanBoutique.dto.ChangeData;
 import org.trueFanBoutique.model.Usuario;
+import org.trueFanBoutique.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-
-	private static final ArrayList<Usuario> lista = new ArrayList<Usuario>();
 	
-	public UsuarioService() {
-		lista.add(new Usuario("Sebastian","Moran",3112341234L, "seb@gmail.com","ola1234","28-08-2024"));
-		lista.add(new Usuario("Esmeralda", "Santos",5512341234L,"esme@hotmail.com","esme123.","15-09-2024"));
-		lista.add(new Usuario("Jose", "Chanes", 5609876543L,"chanes@outlook.com","pepe321","09-10-2024"));
+	@Autowired
+	private PasswordEncoder encoder;
+
+	public final UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	public UsuarioService(UsuarioRepository usuarioRepository) {
+		this.usuarioRepository = usuarioRepository;
 	}//constructor
 	
 	public List<Usuario> getAllUsuarios(){
-		return lista ;
+		return usuarioRepository.findAll();
 	}//getAllUsuarios (GET)
 	
 	public Usuario getUsuario(Long id) {
-		Usuario user=null;
-		for (Usuario usuario : lista) {
-			if (usuario.getId()==id) {
-				user=usuario;
-				break;
-			}//if
-		}//foreach
-		return user;
+		return usuarioRepository.findById(id).orElseThrow(
+				()->new IllegalArgumentException("El usuario con el [" +id+"] no existe")
+				);
 	}//getUsuario (GET)
 	
 	public Usuario addUsuario(Usuario usuario) {
-		Usuario user = null;
-		boolean flag = false;
-		for (Usuario u : lista) {
-			if(u.getEmail().equals(usuario.getEmail())) {
-				flag= true;
-				break;
-			}//if
-		}//foreach
-		if(!flag) {
-			lista.add(usuario);
-			user=usuario;
-		}//if
-		return user;
+		Optional<Usuario> user = usuarioRepository.findByEmail(usuario.getEmail());
+		if(user.isEmpty()) {
+			usuario.setPassword(encoder.encode(usuario.getPassword()));
+			return usuarioRepository.save(usuario);
+			}//if empty
+		
+		else{System.out.println("este correo ya esta en uso");
+			return null;
+			}//else
 	}//addUsuario (POST)
 	
 	public Usuario deleteUsuario(Long id) {
-		Usuario user=null;
-		for (Usuario usuario : lista) {
-			if(usuario.getId()==id) {
-				user=lista.remove(lista.indexOf(usuario));
-				break;	
+		Usuario user = null;
+		if (usuarioRepository.existsById(id)) {
+				user=usuarioRepository.findById(id).get();
+				usuarioRepository.deleteById(id);
 			}//if
-		}//foreach
 		return user;
 	}//deleteUsuario (DEL)
 	
 	public Usuario updateData(Long id, ChangeData changeData) {
 	    Usuario user = null;
-	    for (Usuario usuario : lista) {
-	        if (usuario.getId().equals(id)) {
-	            // Actualizar contraseña si es necesario
-	            if (changeData.getNpassword() != null && 
-	                usuario.getPassword().equals(changeData.getPassword())) {
-	                usuario.setPassword(changeData.getNpassword());
-	            }
-	            // Actualizar teléfono si es necesario
-	            if (changeData.getNphone() != null && 
-	                usuario.getPhone().equals(changeData.getPhone())) {
+	    
+	    if (usuarioRepository.existsById(id)) {
+			Usuario usuario = usuarioRepository.findById(id).get();
+
+			// Actualizar contrase�a si es necesario
+			if(encoder.matches(changeData.getPassword(),usuario.getPassword())){
+				usuario.setPassword(encoder.encode(changeData.getNpassword()));
+				usuarioRepository.save(usuario);
+				user = usuario;
+			}//if getPassword.matches(changePassword)
+			
+			
+            // Actualizar telfono si es necesario
+			if (changeData.getNphone()!=null && 
+	                usuario.getPhone().equals(changeData.getPhone())){
+				
 	                usuario.setPhone(changeData.getNphone());
+	    			usuarioRepository.save(usuario);
+	    			user = usuario;
 	            }//if
-	            user = usuario;
-	            break;
-	        }//if
-	    }//foreach
+			
+		}//if exists
 	    return user;
 	}//updateData
 

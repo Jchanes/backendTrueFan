@@ -1,17 +1,26 @@
 package org.trueFanBoutique.model;
 
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="User")
 public class Usuario {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id",unique = true, nullable = false)
 	private Long id;
+	@Column(nullable = false)
 	private String firstName;
+	@Column(nullable = false)
 	private String lastName;
+	@Column(nullable = false)
 	private Long phone;
+	@Column(nullable = false, unique =true)
 	private String email;
+	@Column(nullable = false)
 	private String password;
 	private String date; //TODO poner bien la fecha
-	private static Long total = Long.valueOf(0);
-	
-
 	
 	public Usuario(String firstName, String lastName, Long phone, String email, String password, String date) {
 		this.firstName = firstName;
@@ -20,14 +29,12 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 		this.date = date;
-		Usuario.total++;
-		id = Usuario.total;
+
 	}//constructor 1
 
 
 	public Usuario() {
-		Usuario.total++;
-		id = Usuario.total;
+
 	}//constructor2
 
 	
@@ -88,14 +95,6 @@ public class Usuario {
 	public void setDate(String date) {
 		this.date = date;
 	}//setDate
-
-	public static Long getTotal() {
-		return total;
-	}//getTotal
-
-	public static void setTotal(Long total) {
-		Usuario.total = total;
-	}//setTotal
 
 	@Override
 	public String toString() {
