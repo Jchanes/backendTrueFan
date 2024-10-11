@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.trueFanBoutique.model.Order;
+import org.trueFanBoutique.model.Ordenes;
 import org.trueFanBoutique.service.OrderService;
 
 @RestController
@@ -25,27 +25,27 @@ public class OrderController {
 	}//constructor
 	
 	@GetMapping
-	public List<Order> getOrder(){
+	public List<Ordenes> getOrder(){
 		return orderService.getAllOrder();
 	}//getOrder
 
 	@GetMapping(path="{orderId}")// http://localhost:8080/truefan/order/1
-	public Order getOrder(@PathVariable("orderId")Long orderId) {
+	public Ordenes getOrder(@PathVariable("orderId")Long orderId) {
 		return orderService.getOrder(orderId);
 	}//getOrder
 	
 	@PostMapping  // http://localhost:8080/truefan/order/
-	public Order addOrder(@RequestBody Order order) {
+	public Ordenes addOrder(@RequestBody Ordenes order) {
 		 return orderService.addOrder(order);
 	}//addOrder
 	
 	@DeleteMapping(path="{orderId}")// http://localhost:8080/truefan/order/1
-	public Order deleteOrder (@PathVariable("orderId")Long orderid) {
+	public Ordenes deleteOrder (@PathVariable("orderId")Long orderid) {
 		return orderService.deleteOrder(orderid);
 	}//deleteOrder
 	
 	@PutMapping(path="{orderId}")
-	public Order updateOrder(@PathVariable("orderId") Long orderId) {
+	public Ordenes updateOrder(@PathVariable("orderId") Long orderId) {
 		return orderService.updateOrder(orderId);
 	}//updateOrder
 	

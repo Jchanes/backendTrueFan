@@ -1,22 +1,37 @@
 package org.trueFanBoutique.model;
 
-public class Order {
-	
-	private Long id, userid, productid;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Ordenes  {
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column (name="id", unique=true, nullable=false)
+	private Long id;
+	@Column (nullable=false)
+	private Long userid;
+	@Column (nullable=false)
+	private Long productid;
+	@Column (nullable=false)
 	private String date;
+	@Column (nullable=false)
 	private Boolean orderStatus;
-	private static Long total = Long.valueOf(0);
+//	private static Long total = Long.valueOf(0);
+	@Column (nullable=false)
 	private String direccion;
 	
-	public Order(String date, String direccion, Boolean orderStatus, Long userid, Long productid) {
+	public Ordenes(String date, String direccion, Boolean orderStatus, Long userid, Long productid) {
 	
 		this.userid = userid;
 		this.productid = productid;
 		this.date = date;
 		this.orderStatus = orderStatus;
 		this.direccion = direccion;
-		Order.total++;
-		this.id = Order.total;
+		
 	}
 
 	public String getDireccion() {
@@ -27,9 +42,8 @@ public class Order {
 		this.direccion = direccion;
 	}
 
-	public Order() {
-		Order.total++;
-		this.id = Order.total;
+	public Ordenes() {
+		
 	}
 
 	public Long getId() {

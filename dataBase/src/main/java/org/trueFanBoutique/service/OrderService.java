@@ -1,65 +1,58 @@
 package org.trueFanBoutique.service;
-import java.util.ArrayList;
+
 import java.util.List;
 
-import org.trueFanBoutique.model.Order;
+import org.trueFanBoutique.model.Ordenes;
+import org.trueFanBoutique.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
-	private static final ArrayList<Order> lista = new ArrayList<Order>();
     
-    public OrderService () {
-    	lista.add(new Order("2024-10-10", "Av. de los jardines, Tultepec", true ,Long.valueOf(5477884), Long.valueOf(48451145)));
-    	
-    	lista.add(new Order("2024-11-15","Calle 13, Remedios, Naucalpan", false,Long.valueOf(1578454), Long.valueOf(1154452)));
-    	
-    	lista.add(new Order("2024-12-06","Av. Invierno, Benito Juarez", true,Long.valueOf(58785418), Long.valueOf(548855)));
-    }//constructor
-    
-    public List<Order> getAllOrder() {
-		return lista;
+   public final OrderRepository orderRepository;
+    @Autowired
+    public OrderService(OrderRepository orderRepository) {
+
+	this.orderRepository = orderRepository;
+}
+
+	public List<Ordenes> getAllOrder() {
+		return orderRepository.findAll();
 		
 	}//getAllOrders
 
-	public Order getOrder(Long orderId) {
-		Order ord = null;
-		for (Order order: lista) {
-			if (order.getId()== orderId) {
-				ord=order;
-				break;
-			}//if
-		}//forEach
-		return ord;
+	public Ordenes getOrder(Long orderId) {
+		
+		return orderRepository.findById(orderId).orElseThrow(
+				()->new IllegalArgumentException("La orden con el id [" + orderId
+						+ "] no existe.")
+				);
 	}//getOrder
 	
-	public Order addOrder(Order order) {
-		lista.add(order);
+	public Ordenes addOrder(Ordenes order) {
+		orderRepository.save(order);
 		return order;
-		
 	}//addOrder
 	
-	public Order deleteOrder(Long orderId) {
-		Order ord = null;
-		for (Order order : lista) {
-			if (order.getId()== orderId) {
-				ord=lista.remove(lista.indexOf(order));
-				break;
+	public Ordenes deleteOrder(Long orderId) {
+		Ordenes ord = null;
+			if ( orderRepository.existsById(orderId) ) {
+				ord= orderRepository.findById(orderId).get();
+				orderRepository.deleteById(orderId);
 			}//if
-		}//forEach
 		return ord;
 	}//deleteOrder
 
-	public Order updateOrder(Long orderId) {
-		Order ord = null;
-	    for (Order order : lista) {
-	        if (order.getId()==orderId) { 
-	            order.setOrderStatus(!order.getOrderStatus());;
-	            ord = order;
-	            break;
+	public Ordenes updateOrder(Long orderId) {
+		Ordenes ord = null;
+	        if (orderRepository.existsById(orderId)) { 
+	           ord= orderRepository.findById(orderId).get();;
+	            ord.setOrderStatus(!ord.getOrderStatus()); ;
+	          orderRepository.save(ord);
 	        }
-	    }
+	    
 	    return ord;
-	}
+	}//updateOrder
 	
 }//class OrderService 
