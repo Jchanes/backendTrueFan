@@ -1,6 +1,7 @@
 package org.trueFanBoutique.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,14 @@ public class ProductoService {
 	}
 
 	public Producto addProducto(Producto producto) {
-		return producto;
+		Optional<Producto> prod = productoRepository.findByNombre(producto.getNombre());
+		if(prod.isEmpty()) {
+			return productoRepository.save(producto);
+		}else {
+			System.out.println("el producto ["+producto.getNombre()
+					+ "] ya se encuentra registrado");
+			return null;
+		}
 	}
 
 	public Producto deleteProducto(Long prodId) {
