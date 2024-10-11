@@ -10,6 +10,6 @@ import org.trueFanBoutique.model.Producto;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
-        Optional<Producto> findByName(String Nombre);
+        Optional<Producto> findByNombre(String Nombre);
        
 }
