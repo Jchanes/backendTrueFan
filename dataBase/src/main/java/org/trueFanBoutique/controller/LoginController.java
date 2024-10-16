@@ -29,17 +29,20 @@ public class LoginController {
 	public Token loginUser(@RequestBody Usuario usuario) throws ServletException {
 		if(usuarioService.validateUser(usuario)) {
 			System.out.println("Usuario valido" + usuario.getEmail());
-			return new Token(generateToken(usuario.getEmail()));
+			Long userId = usuario.getId();
+			return new Token(generateToken(usuario.getEmail(),userId));
 		}//validateUser
 		throw new ServletException("Nombre de usuario o contraseña incorrectos[" + usuario.getEmail() + "]");
 	}//loginUser
 	
-	private String generateToken(String email) {
+	private String generateToken(String email,Long userId) {
 		Calendar calendar = Calendar.getInstance();///Fecha y hora de hoy
 		calendar.add(Calendar.HOUR,12); //Prueba desarrollo
 		//calendar.add(Calendar.MINUTE, 30); //PRODUCC
 		
-		return Jwts.builder().setSubject(email).claim("role", "user")
+		return Jwts.builder().setSubject(email)
+				.claim("role", "user")
+				.claim("userId",userId)
 				.setIssuedAt(new Date())
 				.setExpiration(calendar.getTime())
 				.signWith(SignatureAlgorithm.HS256, JwtFilter.secret)
