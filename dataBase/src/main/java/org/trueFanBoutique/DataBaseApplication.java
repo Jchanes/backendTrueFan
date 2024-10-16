@@ -17,7 +17,7 @@ public class DataBaseApplication {
 	public FilterRegistrationBean<JwtFilter> jwtFilter(){
 		FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<JwtFilter>();
 			registrationBean.setFilter(new JwtFilter());
-//			registrationBean.addUrlPatterns("/truefan/productos/*");
+			registrationBean.addUrlPatterns("/truefan/productos/*");
 			registrationBean.addUrlPatterns("/truefan/usuarios/*");
 			registrationBean.addUrlPatterns("/truefan/order/*");
 		return registrationBean;

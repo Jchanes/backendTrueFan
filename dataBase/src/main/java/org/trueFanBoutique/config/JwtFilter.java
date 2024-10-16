@@ -51,6 +51,7 @@ public class JwtFilter extends GenericFilterBean{
 			}//if getMethod
 			
 		}//if gethMetod
+		chain.doFilter(request, response); //siempre ultima linea de cualquier doFilter
 	}//dofilter
 	
 }//class JwtFilter 
