@@ -60,7 +60,7 @@ public class UsuarioService {
 	    if (usuarioRepository.existsById(id)) {
 			Usuario usuario = usuarioRepository.findById(id).get();
 
-			// Actualizar contraseña si es necesario
+			// Actualizar contraseï¿½a si es necesario
 			if(encoder.matches(changeData.getPassword(),usuario.getPassword())){
 				usuario.setPassword(encoder.encode(changeData.getNpassword()));
 				usuarioRepository.save(usuario);
@@ -80,5 +80,17 @@ public class UsuarioService {
 		}//if exists
 	    return user;
 	}//updateData
+	
+	public boolean validateUser(Usuario usuario) {
+		Optional<Usuario> user = usuarioRepository.findByEmail(usuario.getEmail());
+		
+		if(user.isPresent()){
+			Usuario tmpUser = user.get();
+			if(encoder.matches(usuario.getPassword(), tmpUser.getPassword())){
+				return true;
+			}//if matches
+		}//if ispresent
+		return false;
+	}//validateUser
 
 }//class UsuarioService 
