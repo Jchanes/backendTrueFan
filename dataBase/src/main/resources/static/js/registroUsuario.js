@@ -135,30 +135,94 @@ btnValidar.addEventListener("click", function(event) {
     }
 
     if (emailEsValido==true && telefonoEsValido==true && nombreEsValido==true && passwordEsValido) {
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Registrado con éxito",
-            showConfirmButton: false,
-            timer: 1500
-        })
-
-        let usuario = {
-            name: txtname.value,
-            tel: txtnumber.value,
+        
+        /* let usuario = {
+            firstName: txtname.value,
+            phone: txtnumber.value,
             email: txtmail.value,
             password: passwordInput.value,
+            date: new Date().toLocaleDateString()
+        }; */
+
+        /* Se modifica el proceso anterior de guardar en LocalStorage */
+        /* let users = JSON.parse(localStorage.getItem("Users")) || []; 
+        console.log(users);  
+        users.push(usuario);
+        localStorage.setItem("Users", JSON.stringify(users)); */
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            firstName: txtname.value,
+            lastName: " ",
+            phone: txtnumber.value,
+            email: txtmail.value,
+            password: passwordInput.value,
+            date: new Date().toLocaleDateString()
+        });
+        console.log(raw)
+
+        const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
         };
 
-        let users = JSON.parse(localStorage.getItem("Users")) || [];   
-        users.push(usuario);
-        localStorage.setItem("Users", JSON.stringify(users));
+        fetch("http://localhost:8080/truefan/usuarios/", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+            
+        if(result != ""){
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario registrado con éxito",
+                showConfirmButton: true,
+                confirmButtonText: `
+                  Ir a login!
+                ` 
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    txtname.value = ''
+                    txtnumber.value=''
+                    txtmail.value=''
+                    passwordInput.value=''
+                    confirmPasswordInput.value=''
+                    window.location.href = "login.html"
+                }
+            });
+        }else{
 
-        txtname.value = ''
-        txtnumber.value=''
-        txtmail.value=''
-        passwordInput.value=''
-        confirmPasswordInput.value=''
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Ya se encuentra registrado un usuario con esos datos",
+                showConfirmButton: false,
+                timer: 4000
+            });
+
+        }
+
+        
+            
+
+        })
+        .catch((error) => {
+            
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Hay un problema con el servidor, intente mas tarde",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            console.error(error)
+        
+        });
+
+    
     } else {
             Swal.fire({
                 position: "center",
@@ -179,4 +243,3 @@ btnValidar.addEventListener("click", function(event) {
 
 passwordInput.addEventListener('input', validarPassword);
 confirmPasswordInput.addEventListener('input', validarPassword); 
-
