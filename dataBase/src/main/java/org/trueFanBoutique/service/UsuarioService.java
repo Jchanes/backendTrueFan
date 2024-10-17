@@ -67,12 +67,13 @@ public class UsuarioService {
 			Usuario usuario = usuarioRepository.findById(id).get();
 
 			// Actualizar contrase�a si es necesario
-			if(encoder.matches(changeData.getPassword(),usuario.getPassword())){
-				usuario.setPassword(encoder.encode(changeData.getNpassword()));
-				usuarioRepository.save(usuario);
-				user = usuario;
-			}//if getPassword.matches(changePassword)
-			
+			if(changeData.getNpassword()!= null || changeData.getPassword()!= null ) {
+				if(encoder.matches(changeData.getPassword(),usuario.getPassword())){
+					usuario.setPassword(encoder.encode(changeData.getNpassword()));
+					usuarioRepository.save(usuario);
+					user = usuario;
+				}//if getPassword.matches(changePassword)
+			}			
 			
             // Actualizar telfono si es necesario
 			if (changeData.getNphone()!=null && 

@@ -51,6 +51,7 @@ public class UsuarioController {
 	
 	@PutMapping(path="{userId}")
 	public Usuario updateData(@PathVariable("userId") Long id, @RequestBody ChangeData changeData) {
+		System.out.println(changeData);
 	    return usuarioService.updateData(id, changeData);
 	}//updateData
 

@@ -103,7 +103,7 @@ headerGlobal.innerHTML = `
                         <img src="./Assets/NavBarLogos/carrito1.png" alt="Carrito" width="75" height="55">
                         
                     </a>
-                    <a id="name2" class="navbar-brand" href="registroUsuario.html">
+                    <a id="name2" class="navbar-brand" href="perfil.html">
                         <p>${localStorage.getItem("name").split(" ")[0]}</p>
                     </a>
                 </div>
