@@ -33,6 +33,12 @@ public class UsuarioService {
 				);
 	}//getUsuario (GET)
 	
+	public Usuario getUsuario(String email) {
+		return usuarioRepository.findByEmail(email).orElseThrow(
+				()->new IllegalArgumentException("El usuario con el [" +email+"] no existe")
+				);
+	}//getUsuario (GET)
+	
 	public Usuario addUsuario(Usuario usuario) {
 		Optional<Usuario> user = usuarioRepository.findByEmail(usuario.getEmail());
 		if(user.isEmpty()) {
