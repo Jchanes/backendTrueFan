@@ -11,6 +11,7 @@ function addItem(item) {
 		'    </div">\n' +
 		'    <div">\n' +
 		'   <p class="card-text">$' + item.precio + '</p>\n' +
+		'   <a href="producto-detalle.html?id=' + item.id + '" class="btn btn-primary rounded-pill btn-lg w-100 mt-auto " id="BtnAdd">Ver detalles</a>\n'+
 		'   <a href="#" class="btn btn-primary rounded-pill btn-lg w-100 mt-auto " id="BtnAdd">Agregar al carrito</a>\n' +
 		'    </div">\n' +
 		'    </div>\n' +
@@ -21,7 +22,6 @@ function addItem(item) {
 	itemsContainer.innerHTML += itemHTML;
 }
 
-
 const fetchProducts = () => {
 	const requestOptions = {
 		method: "GET",
@@ -29,7 +29,7 @@ const fetchProducts = () => {
 	};
 
 	fetch("http://localhost:8080/truefan/productos/", requestOptions)
-		.then((response) => response.json()) 
+		.then((response) => response.json())
 		.then((data) => {
 			data.forEach((product) => {
 				if (product.genero === "EDM") {

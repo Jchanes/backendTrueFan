@@ -138,7 +138,7 @@ btnValidar.addEventListener("click", function(event) {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Enviado",
+            title: "Registrado con éxito",
             showConfirmButton: false,
             timer: 1500
         })
