@@ -8,55 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const txtGenero = document.getElementById("exampleFormControlSelect1");
 
     function validarTitulo(titulo) {
-       // let pattern =  /^(?:\D*\d){3}\D*$/;
-        
-       //return pattern.test(titulo);
-       return titulo.trim().length>=3;
+        return titulo.trim().length >= 3;
     }
 
     function validarDescription(description) {
-        //let pattern = /^[a-zA-Z0-9\s!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{10,}$/;
-        //return pattern.test(description);
-        return description.trim().length>=5;
+        return description.trim().length >= 5;
     }
 
-    /* function validarLink(link) {
-        let pattern = /^https?:\/\/(?:www\.)?([a-z0-9-]+)\.(?:[a-z]{2,}|[0-9]{1,3})(?:\.[a-z]{2,}|[0-9]{1,3})?(?:\/[^\s]*?)?$/;
-        return pattern.test(link);
-    } */
-
-    function validarLink(link){
+    function validarLink(link) {
         return txtLink.files.length != 0;
-    }    
+    }
 
     function validarPrecio(precio) {
-        //let pattern = /^\$?[0-9]+(\.[0-9]{1,2})?$/;
-        //return pattern.test(precio);
-        return precio!='';
+        return precio != '';
     }
 
     btnValidar.addEventListener("click", function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const tituloEsValido = validarTitulo(txtTitulo.value);
         const descriptionEsValido = validarDescription(txtDescription.value);
         const linkEsValido = validarLink(txtLink.value);
         const precioEsValido = validarPrecio(txtPrecio.value);
 
-        // Verifica en consola los resultados de la validación
-        console.log("Título válido:", tituloEsValido);
-        txtTitulo.style.border = ''
-        console.log("Descripción válida:", descriptionEsValido);
-        txtDescription.style.border = ''
-        console.log("Enlace válido:", linkEsValido);
-        txtLink.style.border = ''
-        console.log("Precio válido:", precioEsValido);
-        txtPrecio.style.border = ''
-
-
         if (!tituloEsValido) {
-            console.log("Error: Título no es válido");
-            txtTitulo.style.border = 'solid red thin'
+            txtTitulo.style.border = 'solid red thin';
             Swal.fire({
                 icon: 'error',
                 title: 'Error en el título',
@@ -66,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!descriptionEsValido) {
-            console.log("Error: Descripción no es válida");
-            txtDescription.style.border = 'solid red thin'
+            txtDescription.style.border = 'solid red thin';
             Swal.fire({
                 icon: 'error',
                 title: 'Error en la descripción',
@@ -77,9 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!linkEsValido) {
-            console.log("Error: Imagen no cargada");
-            console.log("Error: Archivo no válido");
-            txtLink.style.border = 'solid red thin'
+            txtLink.style.border = 'solid red thin';
             Swal.fire({
                 icon: 'error',
                 title: 'Error al colocar una imagen',
@@ -89,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!precioEsValido) {
-            console.log("Error: Precio no es válido");
-            txtPrecio.style.border = 'solid red thin'
+            txtPrecio.style.border = 'solid red thin';
             Swal.fire({
                 icon: 'error',
                 title: 'Error en el precio',
@@ -99,55 +71,57 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Si todo es válido
-
+        // Si todo es válido, primero sube la imagen a Cloudinary
         const formData = new FormData();
-        formData.append('file',txtLink.files[0]);
-        formData.append('upload_preset','truefan');
-
-        console.log(formData);
+        formData.append('file', txtLink.files[0]);
+        formData.append('upload_preset', 'truefan');
 
         fetch(url, {
             method: "POST",
             body: formData,
-        }).then((response)=>{
-           
-            return response.text()
-         
-            .then((data)=>{
-               
-                
+        }).then((response) => {
+            return response.text();
+        }).then((data) => {
+            const imagenUrl = JSON.parse(data).url;
 
-                let producto = {
-                    name: txtTitulo.value,
-                    description: txtDescription.value,
-                    img: JSON.parse(data).url,
-                    precio: txtPrecio.value,
-                    genero: txtGenero.value.toLowerCase()
-                };
+            const producto = {
+                nombre: txtTitulo.value,
+                descripcion: txtDescription.value,
+                imagen: imagenUrl,
+                precio: txtPrecio.value,
+                genero: txtGenero.value
+            };
 
-                console.log(producto);
+			console.log(JSON.stringify(producto))
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer: ${localStorage.getItem("token")}`);
+            myHeaders.append("Content-Type", "application/json");
 
-                let productos_local = JSON.parse(localStorage.getItem("productos")) || [];   
-                productos_local.push(producto);
-                localStorage.setItem("productos", JSON.stringify(productos_local));
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify(producto),
+                redirect: "follow"
+            };
 
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Producto agregado",
-                    showConfirmButton: true,
-                    timer: 1500
-                });
+            fetch("http://localhost:8080/truefan/productos/", requestOptions)
+                .then((response) => response.text())
+                .then((result) => {
+                    console.log(result);
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Producto agregado",
+                        showConfirmButton: true,
+                        timer: 1500
+                    });
 
-                txtTitulo.value = "";
-                txtDescription.value = "";
-                txtLink.value = "";
-                txtPrecio.value = "";
-            })   
-            
-
+                    txtTitulo.value = "";
+                    txtDescription.value = "";
+                    txtLink.value = "";
+                    txtPrecio.value = "";
+                })
+                .catch((error) => console.error('Error:', error));
         });
-
     });
 });
