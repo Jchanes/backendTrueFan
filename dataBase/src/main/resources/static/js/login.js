@@ -20,7 +20,66 @@ button.addEventListener("click",(e)=>{
 
     e.preventDefault();
 
-    let listUsers = JSON.parse(localStorage.getItem("Users")) || [];
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+    "email": email.value,
+    "password": password.value
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+    };
+
+    fetch("http://localhost:8080/truefan/login/", requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+        console.log(result);
+        
+        localStorage.setItem("token", result);
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("password", password.value)
+
+        if(result != ""){
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: `Bienvenido`,
+                showConfirmButton: true,
+                confirmButtonText: `
+                  Ir a login!
+                ` 
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    txtname.value = ''
+                    txtnumber.value=''
+                    txtmail.value=''
+                    passwordInput.value=''
+                    confirmPasswordInput.value=''
+                    window.location.href = "login.html"
+                }
+            });
+        }else{
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Ya se encuentra registrado un usuario con esos datos",
+                showConfirmButton: false,
+                timer: 4000
+            });
+
+        }
+    
+    })
+    .catch((error) => console.error(error));
+
+
+/*     let listUsers = JSON.parse(localStorage.getItem("Users")) || [];
 
     console.log(validarEmail(email.value));
 
@@ -89,6 +148,6 @@ button.addEventListener("click",(e)=>{
 
     }
 
-    }
+    } */
      
 });
