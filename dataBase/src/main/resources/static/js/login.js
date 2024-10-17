@@ -15,6 +15,30 @@ function validarEmail(mail) {
     return pattern.test(mail)
 }
 
+const getUserData = async (id, token) => {
+    
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer: ${token}`);
+
+    const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+     };
+
+    try{
+       
+      const getDataCall = await fetch(`http://localhost:8080/truefan/usuarios/${id}`, requestOptions); 
+      const data = await getDataCall.json();
+      console.log(data);
+      return data;
+    
+    }catch(error){
+        console.log(error)
+    } 
+    
+}
+
 
 button.addEventListener("click",(e)=>{
 
@@ -37,117 +61,48 @@ button.addEventListener("click",(e)=>{
 
     fetch("http://localhost:8080/truefan/login/", requestOptions)
     .then((response) => response.text())
-    .then((result) => {
+    .then(async (result) => {
         console.log(result);
-        
-        localStorage.setItem("token", result);
-        localStorage.setItem("email", email.value);
-        localStorage.setItem("password", password.value)
+        console.log("Hola Mundo");
+        data = JSON.parse(result);
 
-        if(result != ""){
+
+        dataUser = await getUserData(data.id, data.accessToken);
+        console.log(data);
+        console.log(data.error);
+
+        if(data.error === undefined){
+			
+			localStorage.setItem("name",dataUser.firstName);
+			localStorage.setItem("id",data.id)
+			localStorage.setItem("token",data.accessToken)			
+			
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: `Bienvenido`,
+                title: `Bienvenido ${dataUser.firstName}`,
                 showConfirmButton: true,
                 confirmButtonText: `
-                  Ir a login!
+                  Ir al inicio
                 ` 
             }).then((result) => {
                 if (result.isConfirmed) {
-                    txtname.value = ''
-                    txtnumber.value=''
-                    txtmail.value=''
-                    passwordInput.value=''
-                    confirmPasswordInput.value=''
-                    window.location.href = "login.html"
+					
+                    window.location.href = "index.html"
+                    
                 }
             });
-        }else{
-
+        }else {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Ya se encuentra registrado un usuario con esos datos",
+                title: "Usuario y/o contraseña incorrectos",
                 showConfirmButton: false,
                 timer: 4000
             });
-
         }
     
     })
     .catch((error) => console.error(error));
-
-
-/*     let listUsers = JSON.parse(localStorage.getItem("Users")) || [];
-
-    console.log(validarEmail(email.value));
-
-    if(!validarEmail(email.value)==true){
-
-        console.log(validarEmail(email.value));
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "Ingresa un correo valido",
-            showConfirmButton: false,
-            timer: 4000
-        });
-
-        email.style.border='solid red medium';
-
-    }else{
-
-       if(listUsers == []){
-        
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "Usuario y/o Contraseña no coinciden",
-            showConfirmButton: false,
-            timer: 4000
-        });
-
-        password.style.border='solid red medium';
-        email.style.border='solid red medium';
-        
-
-    } else{
-
-        let result = listUsers.filter(validaPassEmail);
-
-        if(result.length != 0){
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Inicio sesión con éxito",
-                showConfirmButton: false,
-                timer: 1500
-            });     
-            
-            password.style.border='';
-            email.style.border='';
-            password.value = '';
-            email.value = '';
-
-        }else{
-           
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Usuario y/o Contraseña no coinciden",
-                showConfirmButton: false,
-                timer: 4000
-            });
-    
-            password.style.border='solid red medium';
-            email.style.border='solid red medium';
-            
-
-        }
-
-    }
-
-    } */
      
 });
